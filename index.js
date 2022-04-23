@@ -17,7 +17,16 @@ const uri = "mongodb+srv://dbuser1:LAOu8p6CBTWrT7Xp@cluster0.mncuh.mongodb.net/m
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
 async function run() {
-
+    try {
+        await client.connect();
+        const usersCollection = client.db("foodExpress").collection("users");
+        const user = { name: 'Angelina Jolie', email: 'angelina@gmail.com' };
+        const result = await usersCollection.insertOne(user);
+        console.log(`User inserted with id:${result.insertedId}`)
+    }
+    finally {
+        // await client.close();
+    }
 }
 run().catch(console.dir)
 
