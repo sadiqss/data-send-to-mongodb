@@ -9,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
  * 4.create index.js 
-* 5. npm run star-dev
+* 5. npm run start-dev
 const express = require('express');
 const cors = require('cors');
 const app = express();
@@ -50,4 +50,22 @@ app.listen(port, () => {
  * 3. on server: Create user POST method to receive data on the backend
  * 4. on client side: set fetch with POST,headers,body
  * 5. Make sure you return a json from the POST API
+ * 
+ *-------------------------
+ * Load data to the client side
+ * -------------------------
+ * 1. create get api on the server side
+ * 2. create a query object
+ * 3.collection.find(query) 
+ * 4. cursor.toArray()
+ * 5. return the result
+ * 6. from client useEffect and display data
+ * ------------------------
+ * DELETE
+ * ---------------------------
+ * 1. const ObjectId = require('mogodb').ObjectId;
+ * 2.app.delete('user/:id', async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: ObjectId(id) }
+        })
  */
